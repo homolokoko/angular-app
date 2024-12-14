@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { AppService } from '../services/app.service';
-import { ToastService } from '../services/toast.service';
+import { Component } from '@angular/core';
+import { AppService } from 'src/app/services/app.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
-  selector: 'app-first',
-  templateUrl: './first.component.html',
-  styleUrls: ['./first.component.sass'],
+  selector: 'app-preview',
+  templateUrl: './preview.component.html',
+  styleUrls: ['./preview.component.sass']
 })
-export class FirstComponent implements OnInit {
-
+export class PreviewComponent {
   dataSource: any = [];
 
 
