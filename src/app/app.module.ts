@@ -9,6 +9,10 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PreviewComponent } from './components/company/preview/preview.component';
 import { DetailComponent } from './components/company/detail/detail.component';
+import { EnrollComponent } from './components/company/enroll/enroll.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './shared/material/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,12 +21,16 @@ import { DetailComponent } from './components/company/detail/detail.component';
     SecondComponent,
     HomeComponent,
     PreviewComponent,
-    DetailComponent
+    DetailComponent,
+    EnrollComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

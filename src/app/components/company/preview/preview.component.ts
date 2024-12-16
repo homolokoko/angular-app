@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Icompany } from 'src/app/model/icompany';
 import { AppService } from 'src/app/services/app.service';
+import { CompanyService } from 'src/app/services/company.service';
 import { ToastService } from 'src/app/services/toast.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-preview',
@@ -12,69 +17,44 @@ export class PreviewComponent {
 
 
   constructor(
+    private router: Router,
     private appService: AppService,
-    private toast: ToastService
+    private toast: ToastService,
+    private companyService: CompanyService
   ) { }
 
   ngOnInit(): void {
-    this.appService.getRequest()
-      .subscribe(
-        (respones) => {
+    this.companyService.getCompany()
+      .subscribe({
+        next: (respones) => {
           this.toast.toastSucess()
           this.dataSource = respones
         },
-        (error) => {
+        error: (error) => {
           this.toast.toastError()
           console.log('error', error)
         }
-      )
+      })
   }
 
-  public getData() {
-    console.log('get requesting')
-    this.appService.getRequest()
-      .subscribe(
-        (respones) => {
-          this.toast.toastSucess()
-          this.dataSource = respones
-        },
-        (error) => {
-          this.toast.toastError()
-          console.log('error', error)
-        }
-      )
+  deleteCompanyRecord(paramId: string) {
+    Swal.fire({
+      icon: 'question',
+      title: 'Are you sure delete this company infomation ?',
+      confirmButtonText: 'Yes',
+      showCancelButton: true,
+      cancelButtonText: 'No'
+    }).then((onclick) => {
+      if (onclick.isConfirmed)
+        this.companyService.deleteCompany(paramId)
+          .subscribe(() => {
+            this.toast.toastSucess()
+              .then(() => {
+                this.companyService.getCompany()
+                  .subscribe((response) => { this.dataSource = response })
+              })
+          })
+    })
   }
 
-  public postData() {
-    console.log('post requesting')
-    this.appService.postRequest({})
-      .subscribe(
-        (respones) => {
-          console.log('respones', respones)
-        },
-        (error) => { console.log('error', error) }
-      )
-  }
-
-  public putData(param: number) {
-    console.log('put requesting')
-    this.appService.putRequest(param, {})
-      .subscribe(
-        (respones) => {
-          console.log('respones', respones)
-        },
-        (error) => { console.log('error', error) }
-      )
-  }
-
-  public deleteData(param: number) {
-    console.log('delete requesting')
-    this.appService.deleteRequest(param, {})
-      .subscribe(
-        (respones) => {
-          console.log('respones', respones)
-        },
-        (error) => { console.log('error', error) }
-      )
-  }
 }

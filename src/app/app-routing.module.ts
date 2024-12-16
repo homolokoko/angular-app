@@ -5,6 +5,7 @@ import { SecondComponent } from './second/second.component';
 import { HomeComponent } from './home/home.component';
 import { PreviewComponent } from './components/company/preview/preview.component';
 import { DetailComponent } from './components/company/detail/detail.component';
+import { EnrollComponent } from './components/company/enroll/enroll.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,8 +15,10 @@ const routes: Routes = [
   {
     path: 'company',
     children: [
-      { path: 'preview', component: PreviewComponent }, // Child route
-      { path: 'edit', component: DetailComponent }    // Child route
+      { path: '', redirectTo: 'preview', pathMatch: 'full' },
+      { path: 'preview', component: PreviewComponent },
+      { path: 'enroll', component: EnrollComponent }, // Child route
+      { path: 'detail/:id', component: DetailComponent }    // Child route
     ]
   },
 ];
