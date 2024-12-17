@@ -1,91 +1,53 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as _ from 'lodash'
 import { ISelect } from './i-select';
+import Fuse from 'fuse.js'
 
 @Component({
   selector: 'app-shared-form-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.sass']
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent {
 
-  selected!: ISelect
+  search: string = ''
+  selected: ISelect = { value: 0, text: '' }
   dropdown: boolean = false
 
-  list!: ISelect[]
-
-
-  ngOnInit(): void {
-
-    this.selected = { value: 0, text: '' }
-    // throw new Error('Method not implemented.');
-    this.list = [
-      {
-        "value": 1,
-        "text": "1Aa-Sdgje"
-      },
-      {
-        "value": 2,
-        "text": "1Mk-1045B"
-      },
-      {
-        "value": 3,
-        "text": "1345"
-      },
-      {
-        "value": 4,
-        "text": "1Mk-1046B"
-      },
-      {
-        "value": 5,
-        "text": "1Ob-1270L"
-      },
-      {
-        "value": 6,
-        "text": "1Hl-2034#"
-      },
-      {
-        "value": 7,
-        "text": "1Ow-3592N"
-      },
-      {
-        "value": 8,
-        "text": "១៥៦៩៧"
-      },
-      {
-        "value": 9,
-        "text": "H124-Yymz02"
-      },
-      {
-        "value": 10,
-        "text": "12I-1230T"
-      },
-      {
-        "value": 11,
-        "text": "14O-13459H"
-      },
-      {
-        "value": 12,
-        "text": "203-096#"
-      },
-      {
-        "value": 13,
-        "text": "579Ownen"
-      },
-      {
-        "value": 14,
-        "text": "1Mk-1047B"
-      }
-    ]
-
-    _.each(this.list, (item) => {
-      console.log('output', item)
-    })
-  }
+  @Input() list!: ISelect[]
+  @Input() picked!: number
+  @Output() model: EventEmitter<number> = new EventEmitter()
 
   pickItem(item: ISelect) {
     this.selected = item
     this.dropdown = false
+    this.picked = item.value
+    this.model.emit(item.value)
+  }
+
+  get dataSource() {
+    if (this.search === '')
+      return this.list
+    const fuseOptions = {
+      isCaseSensitive: false,
+      includeScore: false,
+      shouldSort: true,
+      includeMatches: false,
+      findAllMatches: false,
+      minMatchCharLength: 1,
+      location: 0,
+      threshold: 0.6,
+      distance: 100,
+      useExtendedSearch: false,
+      ignoreLocation: false,
+      ignoreFieldNorm: false,
+      fieldNormWeight: 1,
+      keys: ["text"]
+    };
+
+    const fuse = new Fuse(this.list, fuseOptions);
+    return _.map(fuse.search(this.search), result => result.item)
+
   }
 
 

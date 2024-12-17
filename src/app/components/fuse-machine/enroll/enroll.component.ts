@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Shared } from 'src/app/model/shared';
 import { FuseMachineService } from 'src/app/services/fuse-machine.service';
 import { SharedService } from 'src/app/services/shared.service';
+import * as _ from 'lodash'
 
 @Component({
   selector: 'app-enroll',
@@ -10,53 +12,76 @@ import { SharedService } from 'src/app/services/shared.service';
 })
 export class EnrollComponent implements OnInit {
 
-  buyers: any
+  buyer!: number
+  style!: number
+  serial_number!: number
+  fuseMachineForm!: FormGroup
+  buyers!: Shared['buyer'][]
+  styles!: Shared['style'][]
+  serial_numbers!: Shared['serial_number'][]
 
-  condition!: boolean
-
-  fuseMachineForm: any
+  time = { given: '', actual: '' }
+  pressure = { given: '', actual: '' }
+  temperature = { given: '', actual: '' }
+  condition = { belt: true, machine: true }
 
   constructor(
     private fb: FormBuilder,
     private shared: SharedService,
-    private fuseMachineService: FuseMachineService
+    // private fuseMachineService: FuseMachineService
   ) { }
 
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
+
     this.shared.buyer()
       .subscribe((response) => { this.buyers = response })
 
     this.shared.style()
-      .subscribe((response) => { console.log('style', response) })
+      .subscribe((response) => { this.styles = response })
 
     this.shared.serialNumber()
-      .subscribe((response) => { console.log('serial-number', response) })
+      .subscribe((response) => { this.serial_numbers = response })
   }
 
-  decideCondition(val: boolean) {
-    this.condition = val
+  pickedBuyer(picked: number) { this.buyer = picked }
+
+  pickedStyle(picked: number) { this.style = picked }
+
+  pickedSerialNumber(picked: number) { this.serial_number = picked }
+
+  beltCondition(value: boolean) { this.condition.belt = value }
+  machineCondition(value: boolean) { this.condition.machine = value }
+
+  submitNContinue() {
+
+    console.log('submitNContinue', {
+      buyer: this.buyer,
+      style: this.style,
+      serial_number: this.serial_number,
+      belt_condition: this.condition.belt,
+      machine_condition: this.condition.machine,
+      time_given: this.time.given,
+      time_actual: this.time.actual,
+      pressure_given: this.pressure.given,
+      pressure_actual: this.pressure.actual,
+      temperature_give: this.temperature.given,
+      temperature_actual: this.temperature.actual,
+    })
   }
 
-  submitNContinue() { }
+  submitNComplete() {
+    console.log('submitNComplete', this.fuseMachineForm.value)
+  }
 
-  submitNComplete() { }
-
-  initialForm() {
-    return this.fb
-      .group({
-        customer_id: new FormControl(''),
-        ia_number: new FormControl(''),
-        machine_sr_number: new FormControl(''),
-        temperature_given: new FormControl(''),
-        temperature_actual: new FormControl(''),
-        pressure_given: new FormControl(''),
-        pressure_actual: new FormControl(''),
-        time_given: new FormControl(''),
-        time_actual: new FormControl(''),
-        belt_condition: new FormControl(''),
-        machine_condition: new FormControl('')
-      })
+  protected initialForm(): void {
+    this.fuseMachineForm = this.fb.group({
+      temperature_given: this.fb.control(''),
+      temperature_actual: this.fb.control(''),
+      pressure_given: this.fb.control(''),
+      pressure_actual: this.fb.control(''),
+      time_given: this.fb.control(''),
+      time_actual: this.fb.control('')
+    })
   }
 
 }

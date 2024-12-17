@@ -5,6 +5,7 @@ import { FuseMachineRoutingModule } from './fuse-machine-routing.module';
 import { PreviewComponent } from 'src/app/components/fuse-machine/preview/preview.component';
 import { EnrollComponent } from 'src/app/components/fuse-machine/enroll/enroll.component';
 import { SharedModule } from 'src/app/components/shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SharedModule } from 'src/app/components/shared/shared.module';
   imports: [
     CommonModule,
     SharedModule,
-    FuseMachineRoutingModule
+    FormsModule,
+    FuseMachineRoutingModule,
   ],
   exports: [
   ]
