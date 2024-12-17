@@ -15,6 +15,7 @@ import { MaterialModule } from './shared/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FuseMachineModule } from './shared/routing/fuse-machine/fuse-machine.module';
 import { SharedModule } from './components/shared/shared.module';
+import { EmployeeModule } from './shared/routing/employee/employee.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SharedModule } from './components/shared/shared.module';
     MaterialModule,
     BrowserAnimationsModule,
     FuseMachineModule,
-    SharedModule
+    SharedModule,
+    EmployeeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
