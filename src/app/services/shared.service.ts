@@ -1,0 +1,19 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Shared } from '../model/shared';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SharedService {
+
+  constructor(private http: HttpClient) { }
+
+  buyer(): Observable<Shared['buyer'][]> { return this.http.get<Shared['buyer'][]>(`https://localhost/api/shared/buyer`) }
+
+  style(): Observable<Shared['style'][]> { return this.http.get<Shared['style'][]>(`https://localhost/api/shared/style`) }
+
+  serialNumber(): Observable<Shared['style'][]> { return this.http.get<Shared['serial_number'][]>(`https://localhost/api/shared/serial-number`) }
+
+}

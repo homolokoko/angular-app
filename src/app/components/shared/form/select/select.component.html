@@ -1,0 +1,17 @@
+<div (clickOutside)="dropdown=false" class="w-full p-2 space-y-3 overflow-hidden border rounded-lg cursor-pointer">
+  <div type="button" (click)="dropdown=!dropdown">
+    <ul class="w-full overflow-hidden text-xs rounded-lg text-neutral-600">
+      <li *ngFor="let item of list">
+        <label for="" *ngIf="selected.value===item.value" class="w-full font-semibold uppercase">
+          {{ item.text }}</label>
+      </li>
+    </ul>
+    <label *ngIf="selected.value===0" class="w-full text-xs font-semibold uppercase text-neutral-600">
+      please select</label>
+  </div>
+  <input *ngIf="dropdown" type="text" class="w-full px-4 py-2 border rounded-md border-sky-200">
+  <ul *ngIf="dropdown" class="w-full overflow-hidden text-xs border rounded-lg text-neutral-600">
+    <li *ngFor="let item of list" (click)="pickItem(item)"
+      class="w-full px-3 py-2 font-semibold uppercase border-b hover:bg-sky-300 hover:text-white">{{item.text}} </li>
+  </ul>
+</div>

@@ -21,6 +21,11 @@ const routes: Routes = [
       { path: 'detail/:id', component: DetailComponent }    // Child route
     ]
   },
+  {
+    path: 'fuse-machine',
+    loadChildren: () => import('./shared/routing/fuse-machine/fuse-machine.module')
+      .then(m => m.FuseMachineModule)
+  }
 ];
 
 @NgModule({

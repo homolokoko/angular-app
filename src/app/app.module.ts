@@ -13,6 +13,8 @@ import { EnrollComponent } from './components/company/enroll/enroll.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FuseMachineModule } from './shared/routing/fuse-machine/fuse-machine.module';
+import { SharedModule } from './components/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     PreviewComponent,
     DetailComponent,
-    EnrollComponent
+    EnrollComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ReactiveFormsModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FuseMachineModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
