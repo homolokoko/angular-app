@@ -16,4 +16,6 @@ export class SharedService {
 
   serialNumber(): Observable<Shared['style'][]> { return this.http.get<Shared['serial_number'][]>(`https://localhost/api/shared/serial-number`) }
 
+  workstation(): Observable<Shared['workstation'][]> { return this.http.get<Shared['workstation'][]>(`https://localhost/api/shared/workstation`) }
+
 }

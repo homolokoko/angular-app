@@ -4,6 +4,7 @@ import { Shared } from 'src/app/model/shared';
 import { FuseMachineService } from 'src/app/services/fuse-machine.service';
 import { SharedService } from 'src/app/services/shared.service';
 import * as _ from 'lodash'
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-enroll',
@@ -14,10 +15,12 @@ export class EnrollComponent implements OnInit {
 
   buyer!: number
   style!: number
+  workstation!: number
   serial_number!: number
   fuseMachineForm!: FormGroup
   buyers!: Shared['buyer'][]
   styles!: Shared['style'][]
+  workstations!: Shared['workstation'][]
   serial_numbers!: Shared['serial_number'][]
 
   time = { given: '', actual: '' }
@@ -28,7 +31,8 @@ export class EnrollComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private shared: SharedService,
-    // private fuseMachineService: FuseMachineService
+    private toast: ToastService,
+    private fuseMachineService: FuseMachineService
   ) { }
 
   ngOnInit(): void {
@@ -50,6 +54,7 @@ export class EnrollComponent implements OnInit {
   pickedSerialNumber(picked: number) { this.serial_number = picked }
 
   beltCondition(value: boolean) { this.condition.belt = value }
+
   machineCondition(value: boolean) { this.condition.machine = value }
 
   submitNContinue() {
@@ -67,10 +72,37 @@ export class EnrollComponent implements OnInit {
       temperature_give: this.temperature.given,
       temperature_actual: this.temperature.actual,
     })
+
+    this.fuseMachineService.enrollFuseMachine({
+      buyer: this.buyer,
+      style: this.style,
+      serial_number: this.serial_number,
+      belt_condition: this.condition.belt,
+      machine_condition: this.condition.machine,
+      time_given: this.time.given,
+      time_actual: this.time.actual,
+      pressure_given: this.pressure.given,
+      pressure_actual: this.pressure.actual,
+      temperature_give: this.temperature.given,
+      temperature_actual: this.temperature.actual,
+    }).subscribe(() => { this.toast.toastSucess() })
+
   }
 
   submitNComplete() {
-    console.log('submitNComplete', this.fuseMachineForm.value)
+    console.log('submitNComplete', {
+      buyer: this.buyer,
+      style: this.style,
+      serial_number: this.serial_number,
+      belt_condition: this.condition.belt,
+      machine_condition: this.condition.machine,
+      time_given: this.time.given,
+      time_actual: this.time.actual,
+      pressure_given: this.pressure.given,
+      pressure_actual: this.pressure.actual,
+      temperature_give: this.temperature.given,
+      temperature_actual: this.temperature.actual,
+    })
   }
 
   protected initialForm(): void {

@@ -1,7 +1,8 @@
 export interface Shared {
-  buyer: IBuyer
-  style: IStyle
-  serial_number: ISerialNumber
+  buyer: iFormFilterProperty
+  style: iFormFilterProperty
+  workstation: iFormFilterProperty
+  serial_number: iFormFilterProperty
 }
 
 interface IBuyer {
@@ -14,7 +15,14 @@ interface IStyle {
   text: string
 }
 
+interface IWorkstation {
+  value: number
+  text: string
+}
+
 interface ISerialNumber {
   value: number
   text: string
 }
+
+export interface iFormFilterProperty { value: number, text: string }

@@ -58,22 +58,22 @@
       <div>
         <label class="text-xs tracking-wider"> BELT'S CONDITION </label>
         <div class="flex gap-3">
-          <button class="px-4 py-2 border rounded-md" (click)="beltCondition(true)"
-            [class]="condition ? 'bg-indigo-600 text-white':''">
+          <button class="px-4 py-2 rounded-md" (click)="beltCondition(true)"
+            [class]="condition.belt ? 'bg-indigo-600 text-white':' border'">
             Pass </button>
-          <button class="px-4 py-2 border rounded-md" (click)="beltCondition(false)"
-            [class]="!condition ? 'bg-indigo-600 text-white':''">
+          <button class="px-4 py-2 rounded-md" (click)="beltCondition(false)"
+            [class]="!condition.belt ? 'bg-indigo-600 text-white':' border'">
             Fail </button>
         </div>
       </div>
       <div>
         <label class="text-xs tracking-wider"> MACHINE'S CONDITION </label>
         <div class="flex gap-3">
-          <button class="px-4 py-2 border rounded-md" (click)="machineCondition(true)"
-            [class]="condition ? 'bg-indigo-600 text-white':''">
+          <button class="px-4 py-2 rounded-md" (click)="machineCondition(true)"
+            [class]="condition.machine ? 'bg-indigo-600 text-white':' border'">
             Pass </button>
-          <button class="px-4 py-2 border rounded-md" (click)="machineCondition(true)"
-            [class]="!condition ? 'bg-indigo-600 text-white':''">
+          <button class="px-4 py-2 rounded-md" (click)="machineCondition(false)"
+            [class]="!condition.machine ? 'bg-indigo-600 text-white':' border'">
             Fail </button>
         </div>
       </div>
