@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IfuseMachine } from '../model/ifuse-machine';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +12,14 @@ export class FuseMachineService {
     private http: HttpClient
   ) { }
 
-  previewFuseMachine = () => this.http.get(`https://localhost/api/fusing-machine/preview`)
+  previewFuseMachine = (): Observable<IfuseMachine[]> => this.http.get<IfuseMachine[]>(`https://localhost/api/fusing-machine/preview`)
 
-  editFuseMachine = (param: string) => this.http.get(`https://localhost/api/fusing-machine/${param}/edit`)
+  editFuseMachine = (param: string): Observable<IfuseMachine> => this.http.get<IfuseMachine>(`https://localhost/api/fusing-machine/${param}/edit`)
 
-  enrollFuseMachine = (data: object) => this.http.post(`https://localhost/api/fusing-machine/enroll`, data)
+  enrollFuseMachine = (data: object): Observable<IfuseMachine> => this.http.post<IfuseMachine>(`https://localhost/api/fusing-machine/enroll`, data)
 
-  deleteFuseMachine = (param: string) => this.http.delete(`https://localhost/api/fusing-machine/${param}/delete`)
+  deleteFuseMachine = (param: string): Observable<IfuseMachine> => this.http.delete<IfuseMachine>(`https://localhost/api/fusing-machine/${param}/delete`)
 
-  modifyFuseMachine = (param: string, data: object) => this.http.put(`https://localhost/api/fusing-machine/${param}/modify`, data)
+  modifyFuseMachine = (param: string, data: object): Observable<IfuseMachine> => this.http.put<IfuseMachine>(`https://localhost/api/fusing-machine/${param}/modify`, data)
 
 }

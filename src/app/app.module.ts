@@ -15,6 +15,9 @@ import { MaterialModule } from './shared/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FuseMachineModule } from './shared/routing/fuse-machine/fuse-machine.module';
 import { SharedModule } from './components/shared/shared.module';
+import { HeaderComponent } from './layouts/header/header.component';
+import { ContentComponent } from './layouts/content/content.component';
+import { FooterComponent } from './layouts/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { SharedModule } from './components/shared/shared.module';
     PreviewComponent,
     DetailComponent,
     EnrollComponent,
+    HeaderComponent,
+    ContentComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

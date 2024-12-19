@@ -1,6 +1,76 @@
 <div>
   <a routerLink="/fuse-machine/enroll">Fuse Machine Enroll</a>
   <!-- <app-shared-form-select></app-shared-form-select> -->
+  <!-- <div class="overflow-x-auto">
+    <ngx-datatable #table class="material w-max striped" [headerHeight]="50" [footerHeight]="50" rowHeight="auto"
+      [limit]="10" [rows]="dataRows">
+
+      <ngx-datatable-column name="Buyer" prop="buyer.name"></ngx-datatable-column>
+      <ngx-datatable-column name="Style" prop="style.name"></ngx-datatable-column>
+      <ngx-datatable-column name="Serial Number" prop="serial_number.name"></ngx-datatable-column>
+
+      <ngx-datatable-column name="Belt">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <div [innerHTML]="row.belt ? `<span class=text-green-600>pass</span>`:`<span class=text-red-600>fail</span>">
+          </div>
+        </ng-template>
+      </ngx-datatable-column>
+
+    </ngx-datatable>
+  </div> -->
+  <div class="overflow-x-auto">
+    <ngx-datatable #table class="material w-max striped" [headerHeight]="50" [footerHeight]="50" rowHeight="auto"
+      [limit]="10" [rows]="dataRows">
+      <ngx-datatable-column name="Buyer" prop="buyer.name"></ngx-datatable-column>
+      <ngx-datatable-column name="Style" prop="style.name"></ngx-datatable-column>
+      <ngx-datatable-column name="Serial Number" prop="serial_number.name"></ngx-datatable-column>
+
+
+      <ngx-datatable-column name="Belt">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <span *ngIf="row.belt">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="text-green-400 size-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </span>
+          <span *ngIf="!row.belt">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="text-red-400 size-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </span>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Machine">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <span *ngIf="row.machine ">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="text-green-400 size-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </span>
+          <span *ngIf="!row.machine">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="text-red-400 size-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </span>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Supplier's Time" prop="given.time"></ngx-datatable-column>
+      <ngx-datatable-column name="Production's Time" prop="actual.time"></ngx-datatable-column>
+      <ngx-datatable-column name="Supplier's Pressure" prop="given.pressure"></ngx-datatable-column>
+      <ngx-datatable-column name="Production's Pressure" prop="actual.pressure"></ngx-datatable-column>
+      <ngx-datatable-column name="Supplier's Temperature" prop="given.temperature"></ngx-datatable-column>
+      <ngx-datatable-column name="Production's Temperature" prop="actual.temperature"></ngx-datatable-column>
+    </ngx-datatable>
+  </div>
 
 
 </div>

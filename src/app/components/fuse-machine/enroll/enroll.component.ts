@@ -5,6 +5,7 @@ import { FuseMachineService } from 'src/app/services/fuse-machine.service';
 import { SharedService } from 'src/app/services/shared.service';
 import * as _ from 'lodash'
 import { ToastService } from 'src/app/services/toast.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-enroll',
@@ -30,6 +31,7 @@ export class EnrollComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     private shared: SharedService,
     private toast: ToastService,
     private fuseMachineService: FuseMachineService
@@ -59,20 +61,6 @@ export class EnrollComponent implements OnInit {
 
   submitNContinue() {
 
-    console.log('submitNContinue', {
-      buyer: this.buyer,
-      style: this.style,
-      serial_number: this.serial_number,
-      belt_condition: this.condition.belt,
-      machine_condition: this.condition.machine,
-      time_given: this.time.given,
-      time_actual: this.time.actual,
-      pressure_given: this.pressure.given,
-      pressure_actual: this.pressure.actual,
-      temperature_give: this.temperature.given,
-      temperature_actual: this.temperature.actual,
-    })
-
     this.fuseMachineService.enrollFuseMachine({
       buyer: this.buyer,
       style: this.style,
@@ -90,7 +78,8 @@ export class EnrollComponent implements OnInit {
   }
 
   submitNComplete() {
-    console.log('submitNComplete', {
+
+    this.fuseMachineService.enrollFuseMachine({
       buyer: this.buyer,
       style: this.style,
       serial_number: this.serial_number,
@@ -102,6 +91,9 @@ export class EnrollComponent implements OnInit {
       pressure_actual: this.pressure.actual,
       temperature_give: this.temperature.given,
       temperature_actual: this.temperature.actual,
+    }).subscribe(() => {
+      this.toast.toastSucess()
+        .then(() => { this.router.navigateByUrl('/fuse-machine') })
     })
   }
 

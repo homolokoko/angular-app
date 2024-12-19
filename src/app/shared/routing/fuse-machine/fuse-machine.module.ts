@@ -6,6 +6,7 @@ import { PreviewComponent } from 'src/app/components/fuse-machine/preview/previe
 import { EnrollComponent } from 'src/app/components/fuse-machine/enroll/enroll.component';
 import { SharedModule } from 'src/app/components/shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     SharedModule,
     FormsModule,
     FuseMachineRoutingModule,
+    NgxDatatableModule
   ],
   exports: [
   ]
