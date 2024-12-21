@@ -25,6 +25,11 @@ const routes: Routes = [
     path: 'fuse-machine',
     loadChildren: () => import('./shared/routing/fuse-machine/fuse-machine.module')
       .then(m => m.FuseMachineModule)
+  },
+  {
+    path: 'user',
+    loadChildren: () => import('./shared/routing/user/user-routing.module')
+      .then(m => m.UserRoutingModule)
   }
 ];
 

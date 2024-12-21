@@ -1,7 +1,8 @@
 {
   "conventionalCommits.scopes": [
     "Company",
-    "Fuse Machine"
+    "Fuse Machine",
+    "User"
   ],
   "conventionalCommits.lineBreak": "\\n"
 }

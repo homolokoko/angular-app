@@ -18,6 +18,7 @@ import { SharedModule } from './components/shared/shared.module';
 import { HeaderComponent } from './layouts/header/header.component';
 import { ContentComponent } from './layouts/content/content.component';
 import { FooterComponent } from './layouts/footer/footer.component';
+import { UserModule } from './shared/routing/user/user.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FooterComponent } from './layouts/footer/footer.component';
     MaterialModule,
     BrowserAnimationsModule,
     FuseMachineModule,
-    SharedModule
+    SharedModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
