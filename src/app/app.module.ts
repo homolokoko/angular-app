@@ -19,6 +19,7 @@ import { HeaderComponent } from './layouts/header/header.component';
 import { ContentComponent } from './layouts/content/content.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { UserModule } from './shared/routing/user/user.module';
+import { EmployeeModule } from './shared/routing/employee/employee.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { UserModule } from './shared/routing/user/user.module';
     BrowserAnimationsModule,
     FuseMachineModule,
     SharedModule,
-    UserModule
+    UserModule,
+    EmployeeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
