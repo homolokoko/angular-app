@@ -3,7 +3,7 @@
 
     <div class="p-5 space-y-4">
 
-      <div class="w-full"><p class="text-lg font-bold tracking-wider">Registratioin Form</p></div>
+      <div class="w-full"><p class="text-lg font-bold tracking-wider">Edit Form</p></div>
 
       <div>
         <div class="grid w-full grid-cols-2 gap-4">
@@ -64,7 +64,11 @@
 
       </div>
 
-      <div class="w-full"><button (click)="submit()" class="px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase bg-neutral-900 rounded-xs">submit</button></div>
+      <div class="flex justify-between w-full">
+        <button routerLink="/employee" class="px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase bg-gray-600 rounded-xs">cancel</button>
+        <button (click)="modify()" class="px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase bg-indigo-600 rounded-xs">update</button>
+        <button (click)="remove()" class="px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase bg-rose-600 rounded-xs">delete</button>
+      </div>
 
     </div>
 
