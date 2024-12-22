@@ -3,7 +3,7 @@
     <a routerLink="/company/enroll"
       class="px-5 py-2 text-xs font-semibold text-white uppercase bg-gray-700 rounded-md">add</a>
   </div> -->
-  <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
+  <!-- <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
         <th scope="col" class="px-6 py-3">First Name</th>
@@ -37,13 +37,76 @@
           <div class="flex justify-center gap-2">
             <a routerLink="/employee/{{item.id}}/edit"
               class="px-4 py-1 text-xs tracking-wider text-white uppercase bg-green-500 rounded-lg">edit</a>
-            <!-- <button routerLink="previewCompanyDetail(item.id)"
-              class="px-4 py-1 text-xs tracking-wider text-white uppercase bg-green-500 rounded-lg">edit</button> -->
-            <!-- <button (click)="deleteCompanyRecord(item.id)"
-              class="px-4 py-1 text-xs tracking-wider text-white uppercase bg-red-500 rounded-lg">remove</button> -->
           </div>
         </td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
+
+  <div class="overflow-x-auto">
+    <ngx-datatable #table class="material w-max striped" [headerHeight]="50" [footerHeight]="50" rowHeight="auto"
+      [limit]="10" [rows]="dataRows">
+      <ngx-datatable-column name="First Name" prop="first_name"></ngx-datatable-column>
+      <ngx-datatable-column name="Last Name" prop="last_name"></ngx-datatable-column>
+      <ngx-datatable-column name="Gender" prop="gender"></ngx-datatable-column>
+      <ngx-datatable-column name="Phone Number" prop="phone_number"></ngx-datatable-column>
+      <ngx-datatable-column name="Date of Birth" prop="dob"></ngx-datatable-column>
+      <ngx-datatable-column name="Email Address" prop="email"></ngx-datatable-column>
+      <ngx-datatable-column name="Address" prop="address"></ngx-datatable-column>
+      <ngx-datatable-column name="Detail">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <span *ngIf="row.id">
+            <a routerLink="/employee/{{row.id}}/edit"
+              class="px-3 py-1.5 text-xs font-semibold tracking-wider text-white uppercase bg-green-600 rounded-sm ">detail</a>
+          </span>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <!-- <ngx-datatable-column name="Belt">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <span *ngIf="row.belt">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="text-green-400 size-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </span>
+          <span *ngIf="!row.belt">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="text-red-400 size-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </span>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Machine">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <span *ngIf="row.machine ">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="text-green-400 size-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </span>
+          <span *ngIf="!row.machine">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="text-red-400 size-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+          </span>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Supplier's Time" prop="given.time"></ngx-datatable-column>
+      <ngx-datatable-column name="Production's Time" prop="actual.time"></ngx-datatable-column>
+      <ngx-datatable-column name="Supplier's Pressure" prop="given.pressure"></ngx-datatable-column>
+      <ngx-datatable-column name="Production's Pressure" prop="actual.pressure"></ngx-datatable-column>
+      <ngx-datatable-column name="Supplier's Temperature" prop="given.temperature"></ngx-datatable-column>
+      <ngx-datatable-column name="Production's Temperature" prop="actual.temperature"></ngx-datatable-column> -->
+    </ngx-datatable>
+  </div>
+
 </div>

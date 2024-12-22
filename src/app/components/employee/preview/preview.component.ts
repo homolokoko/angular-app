@@ -11,13 +11,17 @@ export class PreviewComponent implements OnInit {
 
   employees: any = []
 
+  dataColumns = []
+
+  dataRows:IEmployee[] = []
+
   constructor(
     private employeeService: EmployeeService
   ){}
 
   ngOnInit(): void {
     this.employeeService.preview()
-      .subscribe((response: IEmployee[])=>{ this.employees = response })
+      .subscribe((response: IEmployee[])=>{ this.dataRows = response })
   }
 
 }

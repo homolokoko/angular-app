@@ -39,8 +39,14 @@ export class EnrollComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.shared.buyer()
-      .subscribe((response) => { this.buyers = response })
+    // this.shared.buyer()
+    //   .subscribe((response) => { this.buyers = response })
+
+    this.buyers = [
+      { value: 1, text: 'No.1'},
+      { value: 2, text: 'No.2'},
+      { value: 3, text: 'No.3'},
+    ]
 
     this.shared.style()
       .subscribe((response) => { this.styles = response })
