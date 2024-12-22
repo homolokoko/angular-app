@@ -1,8 +1,8 @@
 <div class="relative overflow-x-auto rounded-lg shadow-md">
-  <!-- <div class="w-full p-5 text-end">
-    <a routerLink="/company/enroll"
+  <div class="w-full p-5 text-end">
+    <a routerLink="/employee/enroll"
       class="px-5 py-2 text-xs font-semibold text-white uppercase bg-gray-700 rounded-md">add</a>
-  </div> -->
+  </div>
   <!-- <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
@@ -42,10 +42,14 @@
       </tr>
     </tbody>
   </table> -->
-
-  <div class="overflow-x-auto">
+  <div class="p-10 space-y-4 overflow-x-auto border">
+    <div class="">
+      <input type="text" placeholder="Search within First Name or Last Name or Phone Number or Email or Address" [(ngModel)]="search"
+      class="w-1/2 px-4 py-2 border-b-2 outline-none focus:border-indigo-600 focus:shadow-md focus:shadow-indigo-200">
+    </div>
     <ngx-datatable #table class="material w-max striped" [headerHeight]="50" [footerHeight]="50" rowHeight="auto"
-      [limit]="10" [rows]="dataRows">
+      [limit]="10" [rows]="list">
+      <ngx-datatable-column name="Department" prop="department.name"></ngx-datatable-column>
       <ngx-datatable-column name="First Name" prop="first_name"></ngx-datatable-column>
       <ngx-datatable-column name="Last Name" prop="last_name"></ngx-datatable-column>
       <ngx-datatable-column name="Gender" prop="gender"></ngx-datatable-column>

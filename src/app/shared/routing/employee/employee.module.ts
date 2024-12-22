@@ -8,6 +8,7 @@ import { FlatpckerComponent } from 'src/app/components/shared/form/flatpcker/fla
 import { PreviewComponent } from 'src/app/components/employee/preview/preview.component';
 import { EditComponent } from 'src/app/components/employee/edit/edit.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { SharedModule } from 'src/app/components/shared/shared.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     CommonModule,
     FormsModule,
     NgxDatatableModule,
-    EmployeeRoutingModule
+    EmployeeRoutingModule,
+    SharedModule,
   ]
 })
 export class EmployeeModule { }

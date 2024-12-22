@@ -3,6 +3,7 @@ export interface Shared {
   style: iFormFilterProperty
   workstation: iFormFilterProperty
   serial_number: iFormFilterProperty
+  department: iFormFilterProperty
 }
 
 interface IBuyer {

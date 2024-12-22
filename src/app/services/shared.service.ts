@@ -18,4 +18,6 @@ export class SharedService {
 
   workstation(): Observable<Shared['workstation'][]> { return this.http.get<Shared['workstation'][]>(`https://localhost/api/shared/workstation`) }
 
+  department = (): Observable<Shared['department'][]> => this.http.get<Shared['department'][]>(`http://localhost:8000/api/shared/department`)
+
 }

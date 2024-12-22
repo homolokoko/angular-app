@@ -5,6 +5,12 @@
 
       <div class="w-full"><p class="text-lg font-bold tracking-wider">Registratioin Form</p></div>
 
+      <div class="flex flex-col space-y-2">
+        <label for="" class="text-xs font-semibold text-neutral-700">Department</label>
+        <span *ngIf="!department" class="text-xs text-red-500">please select a department</span>
+        <app-shared-form-select [list]="departments" (model)="pickedDepartment($event)" />
+      </div>
+
       <div>
         <div class="grid w-full grid-cols-2 gap-4">
 
@@ -23,8 +29,8 @@
               class="w-full px-4 py-2 border rounded-md outline-none focus:border-2 focus:border-indigo-600 focus:shadow-md focus:shadow-indigo-200">
           </div>
           <div class="space-y-2">
-            <label for="" class="text-xs font-semibold text-neutral-700">Date of Birth</label>
-            <input type="date" [(ngModel)]="date_of_birth" class="w-full px-4 py-2 border rounded-md outline-none focus:border-2 focus:border-indigo-600 focus:shadow-md focus:shadow-indigo-200">
+            <label for="datePckr" class="text-xs font-semibold text-neutral-700">Date of Birth</label>
+            <input id="datePckr" type="date" [(ngModel)]="date_of_birth" class="w-full px-4 py-2 border rounded-md outline-none focus:border-2 focus:border-indigo-600 focus:shadow-md focus:shadow-indigo-200">
             <!-- <app-shared-form-flatpcker></app-shared-form-flatpcker> -->
           </div>
           <div class="space-y-2">
@@ -53,7 +59,8 @@
               [(ngModel)]="email_address"
               placeholder="Type here ..."
               class="w-full px-4 py-2 border rounded-md outline-none focus:border-2 focus:border-indigo-600 focus:shadow-md focus:shadow-indigo-200">
-          </div><div class="space-y-2">
+          </div>
+          <div class="space-y-2">
             <label for="" class="text-xs font-semibold text-neutral-700">Address</label>
             <input type="text" id=""
               [(ngModel)]="address"
@@ -64,7 +71,10 @@
 
       </div>
 
-      <div class="w-full"><button (click)="submit()" class="px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase bg-neutral-900 rounded-xs">submit</button></div>
+      <div class="flex justify-between w-full">
+        <a routerLink="/employee"  class="px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase bg-neutral-500 rounded-xs">Cancel</a>
+        <button (click)="submit()" class="px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase bg-neutral-900 rounded-xs">submit</button>
+      </div>
 
     </div>
 

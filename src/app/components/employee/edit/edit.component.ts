@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IEmployee } from 'src/app/model/i-employee';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { SharedService } from 'src/app/services/shared.service';
 import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
@@ -21,8 +22,11 @@ export class EditComponent implements OnInit {
   phone_number!: string
   email_address!: string
   date_of_birth!: Date
+  departments: any
+  department!: number
 
   constructor(
+    private sharedService: SharedService,
     private toast: ToastService,
     private route: ActivatedRoute,
     private router: Router,
@@ -31,6 +35,8 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.sharedService.department()
+      .subscribe((response) => { this.departments = response })
     this.route.params.subscribe(param=>this.param = param['id'])
     this.employeeService.edit(this.param)
       .subscribe((response) => {
@@ -41,9 +47,12 @@ export class EditComponent implements OnInit {
         this.phone_number = response.phone_number
         this.email_address = response.email
         this.date_of_birth = response.date_of_birth
+        this.pickedDepartment(response.department_id)
        })
 
   }
+
+  pickedDepartment(picked: number){ this.department = picked }
 
   remove(){
     this.employeeService.remove(this.param)
@@ -64,6 +73,7 @@ export class EditComponent implements OnInit {
         phone_number: this.phone_number,
         email: this.email_address,
         address: this.address,
+        department_id: this.department
     }).subscribe(()=>{
       this.toast.toastSucess()
         .then(() => { this.router.navigateByUrl(`/employee`) })
