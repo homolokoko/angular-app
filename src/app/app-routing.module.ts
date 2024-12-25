@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path: 'employee',
     loadChildren: () => import('./shared/routing/employee/employee-routing.module')
-      .then(m=> m.EmployeeRoutingModule)
+      .then(m => m.EmployeeRoutingModule)
   },
   {
     path: 'fuse-machine',
@@ -35,6 +35,11 @@ const routes: Routes = [
     path: 'user',
     loadChildren: () => import('./shared/routing/user/user-routing.module')
       .then(m => m.UserRoutingModule)
+  },
+  {
+    path: 'department',
+    loadChildren: () => import('./shared/routing/department/department-routing.module')
+      .then(m => m.DepartmentRoutingModule)
   }
 ];
 

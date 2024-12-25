@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-enroll',
   templateUrl: './enroll.component.html',
   styleUrls: ['./enroll.component.sass']
 })
-export class EnrollComponent {
+export class EnrollComponent implements OnInit {
   address!: string
   gender!: string
   first_name!: string
@@ -15,12 +16,22 @@ export class EnrollComponent {
   email_address!: string
   date_of_birth!: string
   options!: any
+  departments!: any
+  department!: string
 
   constructor(
+    private sharedService: SharedService,
     private employeeService: EmployeeService
-  ){}
+  ) { }
 
-  submit(){
+  ngOnInit(): void {
+    this.sharedService.department()
+      .subscribe(response => this.departments = response)
+  }
+
+  pickDepartment(val: string) { this.department = val }
+
+  submit() {
     this.employeeService.enroll({
       gender: this.gender,
       address: this.address,
@@ -28,8 +39,9 @@ export class EnrollComponent {
       last_name: this.last_name,
       first_name: this.first_name,
       phone_number: this.phone_number,
-      date_of_birth: this.date_of_birth
-    }).subscribe(()=>{ console.log('done') })
+      date_of_birth: this.date_of_birth,
+      department_id: this.department
+    }).subscribe(() => { console.log('done') })
   }
 
 

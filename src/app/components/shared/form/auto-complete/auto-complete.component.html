@@ -1,0 +1,22 @@
+<div (clickOutside)="dropdown=false" [class]="!dropdown ? 'border-b-4 border-indigo-500':''"
+  class="relative w-full space-y-2 shadow-sm cursor-pointer bg-neutral-50">
+  <div (click)="dropdown=!dropdown" class="px-3 py-5 ">
+    <div class="w-full text-xs uppercase text-neutral-600">
+      <label *ngIf="!picked"><span>Please select</span></label>
+      <label *ngFor="let item of list" class="w-full uppercase">
+        <span *ngIf="item.value===picked">{{ item.text }}</span>
+      </label>
+    </div>
+  </div>
+  <div *ngIf="dropdown" class="absolute left-0 z-10 w-full bg-white shadow top-10">
+    <input [(ngModel)]="search" type="text"
+      class="w-full p-4 border-b-2 outline-none border-neutral-200 focus:shadow focus:shadow-blue-300"
+      placeholder="search here ...">
+    <!-- <div *ngFor="let item of dataSource"></div> -->
+    <div class="flex flex-col overflow-auto max-h-48">
+      <label *ngFor="let item of dataSource" (click)="pickItem(item)"
+        [class]=" selected.value===item.value ? 'bg-indigo-500 text-white cursor-not-allowed':'hover:bg-neutral-200 cursor-default'"
+        class="w-full p-5 font-semibold tracking-wider uppercase border-b"><span>{{item.text}} </span></label>
+    </div>
+  </div>
+</div>

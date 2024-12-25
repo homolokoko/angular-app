@@ -2,7 +2,8 @@
   "conventionalCommits.scopes": [
     "Company",
     "Fuse Machine",
-    "User"
+    "User",
+    "Employee"
   ],
   "conventionalCommits.lineBreak": "\\n"
 }

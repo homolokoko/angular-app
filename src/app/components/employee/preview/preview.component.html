@@ -6,6 +6,7 @@
   <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
+        <th scope="col" class="px-6 py-3">Department</th>
         <th scope="col" class="px-6 py-3">First Name</th>
         <th scope="col" class="px-6 py-3">Last Name</th>
         <th scope="col" class="px-6 py-3">Gender</th>
@@ -26,6 +27,7 @@
       </tr>
       <tr *ngFor="let item of employees"
         class="border-b odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 dark:border-gray-700">
+        <td class="px-6 py-4"> {{item.department_id.name}} </td>
         <td class="px-6 py-4"> {{item.first_name}} </td>
         <td class="px-6 py-4"> {{item.last_name}} </td>
         <td class="px-6 py-4"> {{item.gender}} </td>
@@ -35,7 +37,7 @@
         <td class="px-6 py-4"> {{item.address}} </td>
         <td class="px-6 py-4">
           <div class="flex justify-center gap-2">
-            <a routerLink="/employee/{{item.id}}/edit"
+            <a routerLink="/employee/{{item._id}}/edit"
               class="px-4 py-1 text-xs tracking-wider text-white uppercase bg-green-500 rounded-lg">edit</a>
             <!-- <button routerLink="previewCompanyDetail(item.id)"
               class="px-4 py-1 text-xs tracking-wider text-white uppercase bg-green-500 rounded-lg">edit</button> -->

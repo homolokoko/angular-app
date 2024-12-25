@@ -20,6 +20,7 @@ import { ContentComponent } from './layouts/content/content.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { UserModule } from './shared/routing/user/user.module';
 import { EmployeeModule } from './shared/routing/employee/employee.module';
+import { DepartmentModule } from './shared/routing/department/department.module';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { EmployeeModule } from './shared/routing/employee/employee.module';
     FuseMachineModule,
     SharedModule,
     UserModule,
-    EmployeeModule
+    EmployeeModule,
+    DepartmentModule
   ],
   providers: [],
   bootstrap: [AppComponent]
