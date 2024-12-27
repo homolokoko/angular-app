@@ -40,6 +40,11 @@ const routes: Routes = [
     path: 'department',
     loadChildren: () => import('./shared/routing/department/department-routing.module')
       .then(m => m.DepartmentRoutingModule)
+  },
+  {
+    path: 'owner',
+    loadChildren: () => import('./shared/routing/owner/owner-routing.module')
+      .then(m => m.OwnerRoutingModule)
   }
 ];
 

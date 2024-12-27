@@ -59,7 +59,7 @@ export class DetailComponent implements OnInit {
         this.companyService.deleteCompany(this.paramId)
           .subscribe(() => {
             this.toast.toastSucess()
-            .then(() => { this.router.navigateByUrl('/company') })
+              .then(() => { this.router.navigateByUrl('/company') })
           })
     })
   }

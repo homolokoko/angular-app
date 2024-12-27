@@ -21,6 +21,7 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { UserModule } from './shared/routing/user/user.module';
 import { EmployeeModule } from './shared/routing/employee/employee.module';
 import { DepartmentModule } from './shared/routing/department/department.module';
+import { OwnerModule } from './shared/routing/owner/owner.module';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { DepartmentModule } from './shared/routing/department/department.module'
     SharedModule,
     UserModule,
     EmployeeModule,
-    DepartmentModule
+    DepartmentModule,
+    OwnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

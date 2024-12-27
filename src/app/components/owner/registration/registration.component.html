@@ -1,0 +1,99 @@
+<div class="flex justify-center w-full p-10 border rounded-lg shadow">
+  <div class="w-full">
+    <h2 class="text-lg font-bold text-neutral-700">Registration Form</h2>
+
+    <div class="w-full px-5">
+      <p class="font-bold text-md">Owner Information</p>
+      <div class="p-4 space-y-3">
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Name</label>
+          <app-shared-form-input [(value)]="name" />
+        </div>
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Phone</label>
+          <app-shared-form-input [(value)]="phone" />
+        </div>
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Email</label>
+          <app-shared-form-input [(value)]="email" />
+        </div>
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Address</label>
+          <app-shared-form-input [(value)]="address" />
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full px-5">
+      <p class="font-bold text-md">Vihicle Information</p>
+      <div class="p-4 space-y-3">
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Make</label>
+          <app-shared-form-input [(value)]="make" />
+        </div>
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Model</label>
+          <app-shared-form-input [(value)]="model" />
+        </div>
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Year</label>
+          <app-shared-form-date-picker [(value)]="year" [mode]="'single'" />
+        </div>
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">VIN</label>
+          <app-shared-form-input [(value)]="vin" />
+        </div>
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">License Plate</label>
+          <app-shared-form-input [(value)]="license_plate" />
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full px-5">
+      <p class="font-bold text-md">Insurance Information</p>
+      <div class="p-4 space-y-3">
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Insurance Company</label>
+          <app-shared-form-input [(value)]="insurance_company" />
+        </div>
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Policy Number</label>
+          <app-shared-form-input [(value)]="policy_number" />
+        </div>
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Expiration Date</label>
+          <app-shared-form-date-picker [(value)]="expiration_date" [mode]="'single'" />
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full px-5">
+      <p class="font-bold text-md">Registratioin Details</p>
+      <div class="p-4 space-y-3">
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Date Of Purchase</label>
+          <app-shared-form-date-picker [(value)]="date_of_purchase" [mode]="'single'" />
+        </div>
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Method of Purchase (DealerPrivate)</label>
+          <app-shared-form-input [(value)]="method_of_purchase" />
+        </div>
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Registration Type (NewRenewal)</label>
+          <app-shared-form-input [(value)]="registration_type" />
+        </div>
+      </div>
+    </div>
+
+    <div class="space-x-4 space-y-2 text-center">
+      <a routerLink="/owner"
+        class="px-5 py-3 font-semibold tracking-widest text-black rounded-md hover:bg-slate-200 bg-slate-100">
+        Review</a>
+      <button (click)="submit()"
+        class="px-5 py-3 font-semibold tracking-widest text-white bg-black rounded-md hover:bg-slate-700">
+        Submit and Assign</button>
+    </div>
+
+  </div>
+</div>

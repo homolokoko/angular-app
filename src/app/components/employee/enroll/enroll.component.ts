@@ -31,6 +31,8 @@ export class EnrollComponent implements OnInit {
 
   pickDepartment(val: string) { this.department = val }
 
+  getDateOfBirth(val: string) { this.date_of_birth = val }
+
   submit() {
     this.employeeService.enroll({
       gender: this.gender,

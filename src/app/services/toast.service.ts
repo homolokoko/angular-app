@@ -31,4 +31,21 @@ export class ToastService {
     });
   }
 
+  actived(
+    icon: any,
+    title: any,
+    position: any
+  ) {
+
+    return Swal.fire({
+      timer: 1500,
+      toast: true,
+      icon: icon,
+      title: title,
+      position: position,
+      showConfirmButton: false,
+      timerProgressBar: true
+    });
+  }
+
 }
