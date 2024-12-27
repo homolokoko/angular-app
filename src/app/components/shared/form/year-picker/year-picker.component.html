@@ -1,0 +1,14 @@
+<input (click)="open=true" type="text" [(ngModel)]="value" placeholder="Type here ....."
+  class="w-full p-5 transition duration-150 border-b-2 outline-none focus:border-indigo-500 focus:bg-neutral-200 hover:bg-neutral-300 rounded-t-md bg-neutral-100 hover:border-indigo-300">
+
+<div *ngIf="open" class="fixed top-0 left-0 w-screen h-screen">
+  <div (click)="open=false"
+    class="flex items-center justify-center w-full h-full bg-opacity-50 bg-slate-500 backdrop-blur-md">
+    <div class="p-5 bg-white">
+      <div class="grid h-48 grid-cols-5 gap-3 overflow-auto">
+        <button *ngFor="let i of years" [ngClass]="value===i ? 'bg-sky-500 text-white':'hover:bg-sky-300'"
+          (click)="pickYear(i)" class="p-5 font-semibold tracking-widest rounded-md">{{i}}</button>
+      </div>
+    </div>
+  </div>
+</div>

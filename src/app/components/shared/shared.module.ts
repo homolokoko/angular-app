@@ -7,6 +7,7 @@ import { AutoCompleteComponent } from './form/auto-complete/auto-complete.compon
 import { FlatpckerComponent } from './form/flatpcker/flatpcker.component';
 import { InputComponent } from './form/input/input.component';
 import { DatePickerComponent } from './form/date-picker/date-picker.component';
+import { YearPickerComponent } from './form/year-picker/year-picker.component';
 // import 'flatpickr/dist/flatpickr.css';
 
 @NgModule({
@@ -15,7 +16,8 @@ import { DatePickerComponent } from './form/date-picker/date-picker.component';
     AutoCompleteComponent,
     FlatpckerComponent,
     InputComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    YearPickerComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { DatePickerComponent } from './form/date-picker/date-picker.component';
     AutoCompleteComponent,
     FlatpckerComponent,
     InputComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    YearPickerComponent
   ]
 })
 

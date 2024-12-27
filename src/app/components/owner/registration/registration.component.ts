@@ -32,9 +32,6 @@ export class RegistrationComponent {
   ) { }
 
   submit() {
-    // Swal.fire({
-    //   text: JSON.stringify(this)
-    // }).then(() => { this.refreshForm() })
 
     this.ownerService.uploadForm({
       name: this.name,
