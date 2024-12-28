@@ -24,4 +24,7 @@ export class SharedService {
 
   department = (): Observable<autoComplete[]> => this.http.get<autoComplete[]>(`http://localhost:8000/api/shared/department`)
 
+  countries = (): Observable<autoComplete[]> => this.http.get<autoComplete[]>(`http://localhost:8000/api/shared/countries`)
+
+
 }

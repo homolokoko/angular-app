@@ -22,6 +22,8 @@ import { UserModule } from './shared/routing/user/user.module';
 import { EmployeeModule } from './shared/routing/employee/employee.module';
 import { DepartmentModule } from './shared/routing/department/department.module';
 import { OwnerModule } from './shared/routing/owner/owner.module';
+import { CountryModule } from './shared/routing/country/country.module';
+import { MotorcycleModule } from './shared/routing/motorcycle/motorcycle.module';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { OwnerModule } from './shared/routing/owner/owner.module';
     EmployeeModule,
     DepartmentModule,
     OwnerModule,
+    CountryModule,
+    // MotorcycleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

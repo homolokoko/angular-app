@@ -45,6 +45,16 @@ const routes: Routes = [
     path: 'owner',
     loadChildren: () => import('./shared/routing/owner/owner-routing.module')
       .then(m => m.OwnerRoutingModule)
+  },
+  {
+    path: 'country',
+    loadChildren: () => import('./shared/routing/country/country-routing.module')
+      .then(m => m.CountryRoutingModule)
+  },
+  {
+    path: 'motorcycle',
+    loadChildren: () => import('./shared/routing/motorcycle/motorcycle-routing.module')
+      .then(m => m.MotorcycleRoutingModule)
   }
 ];
 
