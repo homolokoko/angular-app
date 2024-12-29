@@ -35,6 +35,11 @@ const routes: Routes = [
     path: 'user',
     loadChildren: () => import('./shared/routing/user/user-routing.module')
       .then(m => m.UserRoutingModule)
+  },
+  {
+    path: 'process',
+    loadChildren: () => import('./shared/process/process-routing.module')
+      .then(m => m.ProcessRoutingModule)
   }
 ];
 

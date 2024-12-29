@@ -20,4 +20,6 @@ export class SharedService {
 
   department = (): Observable<Shared['department'][]> => this.http.get<Shared['department'][]>(`http://localhost:8000/api/shared/department`)
 
+  fileUpload = (data: any) => this.http.post(`http://localhost:8000/api/shared/file-upload`, data)
+
 }
