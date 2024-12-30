@@ -4,7 +4,8 @@
     "Fuse Machine",
     "User",
     "Employee",
-    "Owner"
+    "Owner",
+    "Motorcycle"
   ],
   "conventionalCommits.lineBreak": "\\n"
 }
