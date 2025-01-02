@@ -22,7 +22,8 @@ export class ModelComponent implements OnInit, OnChanges {
   countries: [] = []
   make: string = ""
   makes: [] = []
-  dataSource: any
+  item: object = {}
+  dataSource: [] = []
 
   constructor(
     private toast: ToastService,
@@ -48,7 +49,7 @@ export class ModelComponent implements OnInit, OnChanges {
 
   load() {
     this.modelService.getRecords()
-      .subscribe((response) => { this.dataSource = response })
+      .subscribe((response: any) => { this.dataSource = response })
   }
 
   upload() {
@@ -97,6 +98,11 @@ export class ModelComponent implements OnInit, OnChanges {
         this.toast.actived(response.status, response.message, "bottom-end")
           .then(() => { this.tab = 1; this.load() })
       })
+  }
+
+  detail(item: object) {
+    this.tab = 4
+    this.item = item
   }
 
   get dataRows() {

@@ -5,6 +5,8 @@
     class="p-5 text-xs font-semibold tracking-widest text-center align-middle">Create</button>
   <button *ngIf="tab===3"
     class="p-5 text-xs font-semibold tracking-widest text-center text-white align-middle bg-cyan-700">Action</button>
+  <button *ngIf="tab===4"
+    class="p-5 text-xs font-semibold tracking-widest text-center text-white align-middle bg-cyan-700">Detail</button>
 </div>
 
 
@@ -24,8 +26,12 @@
           <ngx-datatable-column name="Country" prop="make.country.name"></ngx-datatable-column>
           <ngx-datatable-column name="Action">
             <ng-template let-row="row" ngx-datatable-cell-template>
-              <button (click)="edit(row._id)"
-                class="px-4 py-1 text-xs tracking-wider text-white uppercase bg-green-500 rounded-lg">edit</button>
+              <div class="space-y-1">
+                <button (click)="edit(row._id)"
+                  class="px-4 py-1 text-xs tracking-wider text-white uppercase bg-green-500 rounded-lg">edit</button>
+                <button (click)="detail(row)"
+                  class="px-4 py-1 text-xs tracking-wider text-white uppercase rounded-lg bg-slate-500">detail</button>
+              </div>
             </ng-template>
           </ngx-datatable-column>
         </ngx-datatable>
@@ -107,4 +113,8 @@
     </div>
 
   </div>
+</div>
+
+<div *ngIf="tab===4">
+  <app-detail (closeTap)="tab=1" [data]="item"></app-detail>
 </div>
