@@ -8,6 +8,8 @@ import { FlatpckerComponent } from './form/flatpcker/flatpcker.component';
 import { InputComponent } from './form/input/input.component';
 import { DatePickerComponent } from './form/date-picker/date-picker.component';
 import { YearPickerComponent } from './form/year-picker/year-picker.component';
+import { TakenPhotoComponent } from './taken-photo/taken-photo.component';
+import { WebcamModule } from 'ngx-webcam';
 // import 'flatpickr/dist/flatpickr.css';
 
 @NgModule({
@@ -17,12 +19,14 @@ import { YearPickerComponent } from './form/year-picker/year-picker.component';
     FlatpckerComponent,
     InputComponent,
     DatePickerComponent,
-    YearPickerComponent
+    YearPickerComponent,
+    TakenPhotoComponent
   ],
   imports: [
     CommonModule,
     ClickOutsideModule,
     FormsModule,
+    WebcamModule,
   ],
   exports: [
     SelectComponent,
@@ -30,7 +34,8 @@ import { YearPickerComponent } from './form/year-picker/year-picker.component';
     FlatpckerComponent,
     InputComponent,
     DatePickerComponent,
-    YearPickerComponent
+    YearPickerComponent,
+    TakenPhotoComponent
   ]
 })
 

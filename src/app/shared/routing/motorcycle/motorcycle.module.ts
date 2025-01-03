@@ -27,7 +27,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     SharedModule,
     HttpClientModule,
     NgxDatatableModule,
-    MotorcycleRoutingModule
+    MotorcycleRoutingModule,
   ],
   bootstrap: [IndexComponent]
 })

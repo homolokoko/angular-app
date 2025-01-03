@@ -1,0 +1,41 @@
+<div *ngIf="active" class="fixed top-0 left-0 z-20 w-screen h-screen">
+  <div class="relative flex justify-center w-full h-full items-ceter">
+
+    <div class="relative flex items-center w-9/12 p-5 bg-white rounded-lg shadow lg ">
+      <webcam class="w-full" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+        [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions"
+        (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)">
+      </webcam>
+      <div class="absolute left-0 flex justify-center w-full gap-4 p-5 bottom-5">
+        <button class="p-4 rounded-md shadow-md bg-slate-200" (click)="closeWebcam()" title="Close">
+          <svg class="w-9 h-9" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd"
+              d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm7.707-3.707a1 1 0 0 0-1.414 1.414L10.586 12l-2.293 2.293a1 1 0 1 0 1.414 1.414L12 13.414l2.293 2.293a1 1 0 0 0 1.414-1.414L13.414 12l2.293-2.293a1 1 0 0 0-1.414-1.414L12 10.586 9.707 8.293Z"
+              clip-rule="evenodd" />
+          </svg>
+
+        </button>
+        <button class="p-4 rounded-md shadow-md bg-slate-200" (click)="triggerSnapshot()" title="Take Picture">
+          <svg class="w-9 h-9" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd"
+              d="M7.5 4.586A2 2 0 0 1 8.914 4h6.172a2 2 0 0 1 1.414.586L17.914 6H19a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h1.086L7.5 4.586ZM10 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"
+              clip-rule="evenodd" />
+          </svg>
+
+        </button>
+        <button class="p-4 rounded-md shadow-md bg-slate-200" (click)="showNextWebcam(true)" title="Switch Camera">
+          <svg class="w-9 h-9" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+            viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17.651 7.65a7.131 7.131 0 0 0-12.68 3.15M18.001 4v4h-4m-7.652 8.35a7.13 7.13 0 0 0 12.68-3.15M6 20v-4h4" />
+          </svg>
+
+        </button>
+      </div>
+    </div>
+
+
+  </div>
+</div>
