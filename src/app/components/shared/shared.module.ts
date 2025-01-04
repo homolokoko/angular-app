@@ -10,6 +10,8 @@ import { DatePickerComponent } from './form/date-picker/date-picker.component';
 import { YearPickerComponent } from './form/year-picker/year-picker.component';
 import { TakenPhotoComponent } from './taken-photo/taken-photo.component';
 import { WebcamModule } from 'ngx-webcam';
+import { PrimaryComponent } from './button/primary/primary.component';
+import { ButtonComponent } from './button/button.component';
 // import 'flatpickr/dist/flatpickr.css';
 
 @NgModule({
@@ -20,7 +22,9 @@ import { WebcamModule } from 'ngx-webcam';
     InputComponent,
     DatePickerComponent,
     YearPickerComponent,
-    TakenPhotoComponent
+    TakenPhotoComponent,
+    PrimaryComponent,
+    ButtonComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +39,9 @@ import { WebcamModule } from 'ngx-webcam';
     InputComponent,
     DatePickerComponent,
     YearPickerComponent,
-    TakenPhotoComponent
+    TakenPhotoComponent,
+    PrimaryComponent,
+    ButtonComponent
   ]
 })
 

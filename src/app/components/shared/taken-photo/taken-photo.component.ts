@@ -65,10 +65,10 @@ export class TakenPhotoComponent {
       showCloseButton: true,
     }).then((even) => {
       if (even.isDenied)
-        this.active = true
+        return this.active = true
       if (even.isConfirmed)
-        this.pictureTaken.emit(webcamImage.imageAsDataUrl);
-      this.pictureTaken.emit('')
+        return this.pictureTaken.emit(webcamImage.imageAsDataUrl);
+      return this.pictureTaken.emit('')
     })
   }
 

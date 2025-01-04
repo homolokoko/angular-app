@@ -1,0 +1,34 @@
+<button *ngIf="def==='default'" [type]="type" [disabled]="disabled"
+  [class]="disabled ? 'cursor-not-allowed':'cursor-pointer'"
+  class="text-white tracking-widest bg-slate-800 hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-300 font-medium rounded-lg text-xs uppercase px-5 py-2.5 me-2 mb-2 dark:bg-slate-800 dark:hover:bg-slate-700  transition-colors duration-500">
+  <span>{{ text }}</span></button>
+
+
+<button *ngIf="def==='primary'" [type]="type" [disabled]="disabled"
+  [class]="disabled ? 'cursor-not-allowed':'cursor-pointer'"
+  class="text-white tracking-widest bg-cyan-800 hover:bg-cyan-900 focus:outline-none focus:ring-2 focus:ring-slate-300 font-medium rounded-lg text-xs uppercase px-5 py-2.5 me-2 mb-2 dark:bg-cyan-500 dark:hover:bg-cyan-700  transition-colors duration-500">
+  <span>{{ text }}</span></button>
+
+
+<button *ngIf="def==='secondary'" [type]="type" [disabled]="disabled"
+  [class]="disabled ? 'cursor-not-allowed':'cursor-pointer'"
+  class="dark:text-black tracking-widest bg-slate-800 hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-300 font-medium rounded-lg text-xs uppercase px-5 py-2.5 me-2 mb-2 dark:bg-neutral-100 shadow dark:hover:bg-slate-300  transition-colors duration-500">
+  <span>{{ text }}</span></button>
+
+
+<button *ngIf="def==='danger'" [type]="type" [disabled]="disabled"
+  [class]="disabled ? 'cursor-not-allowed':'cursor-pointer'"
+  class="text-white tracking-widest bg-rose-800 hover:bg-rose-900 focus:outline-none focus:ring-2 focus:ring-slate-300 font-medium rounded-lg text-xs uppercase px-5 py-2.5 me-2 mb-2 dark:bg-rose-500 dark:hover:bg-rose-700  transition-colors duration-500">
+  <span>{{ text }}</span></button>
+
+
+<button *ngIf="def==='success'" [type]="type" [disabled]="disabled"
+  [class]="disabled ? 'cursor-not-allowed':'cursor-pointer'"
+  class="text-white tracking-widest bg-emerald-800 hover:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-slate-300 font-medium rounded-lg text-xs uppercase px-5 py-2.5 me-2 mb-2 dark:bg-emerald-500 dark:hover:bg-emerald-700  transition-colors duration-500">
+  <span>{{ text }}</span></button>
+
+
+<button *ngIf="def==='warning'" [type]="type" [disabled]="disabled"
+  [class]="disabled ? 'cursor-not-allowed':'cursor-pointer'"
+  class="text-white tracking-widest bg-amber-800 hover:bg-amber-900 focus:outline-none focus:ring-2 focus:ring-slate-300 font-medium rounded-lg text-xs uppercase px-5 py-2.5 me-2 mb-2 dark:bg-amber-500 dark:hover:bg-amber-700  transition-colors duration-500">
+  <span>{{ text }}</span></button>
