@@ -1,6 +1,10 @@
+import * as _ from 'lodash';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { response } from 'express';
+import { ModelService } from 'src/app/services/motorcycle/model.service';
+import { SharedService } from 'src/app/services/shared.service';
+import { ImagesService } from 'src/app/services/motorcycle/images.service';
 
 @Component({
   selector: 'app-product',
@@ -8,27 +12,51 @@ import { response } from 'express';
   styleUrls: ['./product.component.sass']
 })
 export class ProductComponent {
-  show_webcam: boolean = false
-  sources: [] = []
-  image: string = ''
+
+  tab: number = 1
+  release_year: string = ''
+  release_price: string = ''
+
+  files: any = []
+
+  make: string = ''
+  model: string = ''
+
+  makes: any[] = []
+  models: any[] = []
 
   constructor(
-    private _http: HttpClient
+    private sharedService: SharedService,
+    private imagesService: ImagesService,
   ) { }
 
-  ngOnInit(): void {
-    this._http.get('http://localhost:8000/api/motorcycle/detail/image')
-      .subscribe((response: any) => { this.sources = response })
+  ngOnInit() {
+    this.sharedService.makes()
+      .subscribe((res) => { this.makes = res })
   }
 
-  enableWebcam() {
-    this.show_webcam = true
+  onchangeMake(val: string) {
+    this.sharedService.models(val)
+      .subscribe((res) => { this.models = res })
   }
 
+  preview(val: any) { this.files = val }
 
-  takePicture(val: any) {
-    this.show_webcam = false
-    this.image = val
-    console.log(val)
+  upload() {
+    console.log({
+      model: this.model,
+      release_year: this.release_year,
+      release_price: this.release_price,
+      files: this.files
+    })
+    // return
+    this.imagesService.uploadOne({
+      model: this.model,
+      release_year: this.release_year,
+      release_price: this.release_price,
+      files: this.files
+    }).subscribe()
+
   }
+
 }

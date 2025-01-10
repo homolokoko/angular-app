@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Shared } from '../model/shared';
+import * as e from 'express';
 
 interface autoComplete { value: string, text: string }
 
@@ -26,7 +27,14 @@ export class SharedService {
 
   countries = (): Observable<autoComplete[]> => this.http.get<autoComplete[]>(`http://localhost:8000/api/shared/countries`)
 
-  makes = (param: string): Observable<autoComplete[]> => this.http.get<autoComplete[]>(`http://localhost:8000/api/shared/makes?country=${param}`)
+  makes(param: string = ''): Observable<autoComplete[]> {
+    if (param === '') return this.http.get<autoComplete[]>(`http://localhost:8000/api/shared/makes`)
+    else return this.http.get<autoComplete[]>(`http://localhost:8000/api/shared/makes?country=${param}`)
+  }
+  models(param: string = ''): Observable<autoComplete[]> {
+    if (param === '') return this.http.get<autoComplete[]>(`http://localhost:8000/api/shared/models`)
+    else return this.http.get<autoComplete[]>(`http://localhost:8000/api/shared/models?make=${param}`)
+  }
 
 
 }

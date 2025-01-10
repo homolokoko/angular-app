@@ -12,6 +12,7 @@ import { TakenPhotoComponent } from './taken-photo/taken-photo.component';
 import { WebcamModule } from 'ngx-webcam';
 import { PrimaryComponent } from './button/primary/primary.component';
 import { ButtonComponent } from './button/button.component';
+import { FileDropComponent } from './file-drop/file-drop.component';
 // import 'flatpickr/dist/flatpickr.css';
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ButtonComponent } from './button/button.component';
     YearPickerComponent,
     TakenPhotoComponent,
     PrimaryComponent,
-    ButtonComponent
+    ButtonComponent,
+    FileDropComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { ButtonComponent } from './button/button.component';
     YearPickerComponent,
     TakenPhotoComponent,
     PrimaryComponent,
-    ButtonComponent
+    ButtonComponent,
+    FileDropComponent
   ]
 })
 

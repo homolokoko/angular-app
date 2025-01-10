@@ -1,0 +1,45 @@
+<div
+  class="relative flex items-center justify-center h-40 max-w-full transition border-2 border-dashed bg-slate-50 rounded-2xl border-sky-400">
+  <input class="absolute w-full h-full opacity-0 " type="file" #fileDropRef id="fileDropRef"
+    (change)="onFileChange($event.target)" accept="image/*" multiple />
+  <!-- <img src="assets/img/dnd/ic-upload-file.svg" alt=""> -->
+  <div class="flex flex-col items-center justify-center space-y-2">
+    <svg class="w-12 h-12 text-gray-800 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+      fill="currentColor" viewBox="0 0 24 24">
+      <path fill-rule="evenodd"
+        d="M12 3a1 1 0 0 1 .78.375l4 5a1 1 0 1 1-1.56 1.25L13 6.85V14a1 1 0 1 1-2 0V6.85L8.78 9.626a1 1 0 1 1-1.56-1.25l4-5A1 1 0 0 1 12 3ZM9 14v-1H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-4v1a3 3 0 1 1-6 0Zm8 2a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H17Z"
+        clip-rule="evenodd" />
+    </svg>
+    <p class="text-sm font-semibold tracking-widest uppercase ">Drag and drop file here</p>
+    <label for="fileDropRef"
+      class="px-5 py-3 text-xs font-semibold tracking-widest text-center text-white uppercase rounded-md shadow-md cursor-pointer hover:bg-cyan-300 bg-cyan-700">
+      Browse for file</label>
+  </div>
+</div>
+
+<div *ngIf="collection.length > 0" class="py-5 space-y-4">
+  <div class="flex items-center justify-between border-b">
+    <p class="text-sm font-semibold tracking-widest uppercase">Files</p>
+    <p *ngIf="!isSaved" class="p-2 text-red-700 rounded-md animate-bounce bg-red-50">
+      Please save after did every change !</p>
+    <div class="flex gap-8">
+      <button class="text-xs font-semibold tracking-widest text-teal-700 uppercase" (click)="save()">Save</button>
+      <button class="text-xs font-semibold tracking-widest uppercase text-cyan-700"
+        (click)="clearFiles()">Clear</button>
+    </div>
+  </div>
+  <div class="grid grid-cols-4 gap-5">
+    <div *ngFor="let item of collection; let i= index"
+      class="relative p-3 space-y-4 transition duration-200 border rounded-lg shadow-lg hover:scale-110">
+      <img [src]="item.base64" alt="" class="object-cover w-full rounded-md">
+      <span (click)="removeFile(i)" class="absolute right-2 -top-2">
+        <svg class="w-6 h-6 text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          fill="currentColor" viewBox="0 0 24 24">
+          <path fill-rule="evenodd"
+            d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm5.757-1a1 1 0 1 0 0 2h8.486a1 1 0 1 0 0-2H7.757Z"
+            clip-rule="evenodd" />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
