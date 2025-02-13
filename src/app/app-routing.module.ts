@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path: 'employee',
     loadChildren: () => import('./shared/routing/employee/employee-routing.module')
-      .then(m=> m.EmployeeRoutingModule)
+      .then(m => m.EmployeeRoutingModule)
   },
   {
     path: 'fuse-machine',
@@ -37,9 +37,24 @@ const routes: Routes = [
       .then(m => m.UserRoutingModule)
   },
   {
-    path: 'process',
-    loadChildren: () => import('./shared/process/process-routing.module')
-      .then(m => m.ProcessRoutingModule)
+    path: 'department',
+    loadChildren: () => import('./shared/routing/department/department-routing.module')
+      .then(m => m.DepartmentRoutingModule)
+  },
+  {
+    path: 'owner',
+    loadChildren: () => import('./shared/routing/owner/owner-routing.module')
+      .then(m => m.OwnerRoutingModule)
+  },
+  {
+    path: 'country',
+    loadChildren: () => import('./shared/routing/country/country-routing.module')
+      .then(m => m.CountryRoutingModule)
+  },
+  {
+    path: 'motorcycle',
+    loadChildren: () => import('./shared/routing/motorcycle/motorcycle-routing.module')
+      .then(m => m.MotorcycleRoutingModule)
   }
 ];
 

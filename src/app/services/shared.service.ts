@@ -2,10 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Shared } from '../model/shared';
+import * as e from 'express';
+
+interface autoComplete { value: string, text: string }
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class SharedService {
 
   constructor(private http: HttpClient) { }
@@ -18,8 +23,18 @@ export class SharedService {
 
   workstation(): Observable<Shared['workstation'][]> { return this.http.get<Shared['workstation'][]>(`https://localhost/api/shared/workstation`) }
 
-  department = (): Observable<Shared['department'][]> => this.http.get<Shared['department'][]>(`http://localhost:8000/api/shared/department`)
+  department = (): Observable<autoComplete[]> => this.http.get<autoComplete[]>(`http://localhost:8000/api/shared/department`)
 
-  fileUpload = (data: any) => this.http.post(`http://localhost:8000/api/shared/file-upload`, data)
+  countries = (): Observable<autoComplete[]> => this.http.get<autoComplete[]>(`http://localhost:8000/api/shared/countries`)
+
+  makes(param: string = ''): Observable<autoComplete[]> {
+    if (param === '') return this.http.get<autoComplete[]>(`http://localhost:8000/api/shared/makes`)
+    else return this.http.get<autoComplete[]>(`http://localhost:8000/api/shared/makes?country=${param}`)
+  }
+  models(param: string = ''): Observable<autoComplete[]> {
+    if (param === '') return this.http.get<autoComplete[]>(`http://localhost:8000/api/shared/models`)
+    else return this.http.get<autoComplete[]>(`http://localhost:8000/api/shared/models?make=${param}`)
+  }
+
 
 }

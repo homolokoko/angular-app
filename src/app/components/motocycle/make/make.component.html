@@ -1,0 +1,97 @@
+<div class="flex overflow-hidden rounded-md shadow">
+  <button (click)="tab=1" [class]="tab===1?'bg-cyan-700 text-white':''"
+    class="p-5 text-xs font-semibold tracking-widest text-center align-middle">Review</button>
+  <button (click)="tab=2" [class]="tab===2?'bg-cyan-700 text-white':''"
+    class="p-5 text-xs font-semibold tracking-widest text-center align-middle">Create</button>
+  <button *ngIf="tab===3"
+    class="p-5 text-xs font-semibold tracking-widest text-center text-white align-middle bg-cyan-700">Action</button>
+</div>
+
+
+<div *ngIf="tab===1" class="flex justify-center w-full p-3 rounded-lg bg-zinc-100">
+  <div class="space-y-3">
+    <div class="flex justify-end">
+      <input type="text" value="" class="px-4 py-2 outline-none focus:ring-1 focus:ring-blue-400 bg-slate-200"
+        placeholder="Type here ...." [(ngModel)]="search">
+    </div>
+    <div class="w-full">
+      <div class="overflow-x-auto lg:max-w-6xl md:max-w-2xl">
+        <ngx-datatable #table class="material w-max striped" [headerHeight]="50" [footerHeight]="50" rowHeight="auto"
+          [limit]="10" [rows]="dataRows" [columns]="dataColumns">
+          <ngx-datatable-column name="Country" prop="country.name"></ngx-datatable-column>
+          <ngx-datatable-column name="Name" prop="name"></ngx-datatable-column>
+          <ngx-datatable-column name="Action">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <button (click)="actionTaken(row._id)"
+                class="px-4 py-1 text-xs tracking-wider text-white uppercase bg-green-500 rounded-lg">edit</button>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="tab===2" class="flex justify-center w-full p-10 border rounded-lg shadow">
+  <div class="w-full">
+    <h2 class="text-lg font-bold text-neutral-700">Registration Form</h2>
+
+    <div class="w-full px-5">
+      <p class="font-bold text-md">Make</p>
+      <div class="p-4 space-y-3">
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Country</label>
+          <app-shared-form-auto-complete (model)="country=$event" [list]="countries" />
+        </div>
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Name</label>
+          <app-shared-form-input [(value)]="name" />
+        </div>
+      </div>
+    </div>
+
+    <div class="flex gap-4 justify-items-center">
+      <button (click)="tab=1"
+        class="px-5 py-3 font-semibold tracking-widest text-black rounded-md hover:bg-slate-200 bg-slate-100">
+        Review</button>
+      <button (click)="submit()"
+        class="px-5 py-3 font-semibold tracking-widest text-white bg-black rounded-md hover:bg-slate-700">
+        Submit and Assign</button>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="tab===3" class="flex justify-center w-full p-10 border rounded-lg shadow">
+  <div class="w-full">
+    <h2 class="text-lg font-bold text-neutral-700">Edit Form</h2>
+
+    <div class="w-full px-5">
+      <p class="font-bold text-md">Make Action Taken</p>
+      <div class="p-4 space-y-3">
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Country</label>
+          <app-shared-form-auto-complete [picked]="country" (model)="country=$event" [list]="countries" />
+        </div>
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Name</label>
+          <app-shared-form-input [(value)]="name" />
+        </div>
+      </div>
+    </div>
+
+    <div class="flex gap-4 justify-items-center">
+      <button (click)="tab=1"
+        class="px-5 py-3 font-semibold tracking-widest text-black rounded-md hover:bg-slate-200 bg-slate-100">
+        Review</button>
+      <button (click)="upgrade()"
+        class="px-5 py-3 font-semibold tracking-widest text-white rounded-md bg-emerald-500 hover:bg-emerald-700">
+        Update</button>
+      <button (click)="destroy()"
+        class="px-5 py-3 font-semibold tracking-widest text-white rounded-md bg-rose-500 hover:bg-rose-700">
+        Delete</button>
+    </div>
+
+  </div>
+</div>

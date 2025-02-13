@@ -1,0 +1,28 @@
+<div class="flex justify-center w-full p-10 border rounded-lg shadow">
+  <div class="w-full">
+    <h2 class="text-lg font-bold text-neutral-700">Registration Form</h2>
+
+    <div class="w-full px-5">
+      <p class="font-bold text-md">Country</p>
+      <div class="p-4 space-y-3">
+        <div class="space-y-2">
+          <label scop="row" class="font-semibold tracking-widest">Name</label>
+          <app-shared-form-input [(value)]="name" />
+        </div>
+      </div>
+    </div>
+
+    <div class="flex gap-4 justify-items-center">
+      <a routerLink="/country"
+        class="px-5 py-3 font-semibold tracking-widest text-black rounded-md hover:bg-slate-200 bg-slate-100">
+        Preview</a>
+      <button (click)="modify()"
+        class="px-5 py-3 text-xs font-semibold tracking-widest text-white uppercase bg-indigo-500 rounded-md hover:bg-indigo-600">
+        upgrade</button>
+      <button (click)="remove()"
+        class="px-5 py-3 text-xs font-semibold tracking-widest text-white uppercase bg-red-500 rounded-md hover:bg-red-600">
+        delete</button>
+    </div>
+
+  </div>
+</div>

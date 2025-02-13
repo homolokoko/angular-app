@@ -8,5 +8,5 @@ export interface IEmployee {
   email: string
   address: string
   dob: Date
-  department_id: number
+  department_id: { _id: string, name: string }
 }

@@ -1,0 +1,19 @@
+<a routerLink="/department/create" class="underline">create</a>
+<div class="flex justify-center w-full">
+  <div>
+    <input type="text" value="" class="w-full px-4 py-2 rounded shadow outline-none"
+      placeholder="Search whitin object id or name" [(ngModel)]="search">
+    <ngx-datatable #table class="material w-max striped" [headerHeight]="50" [footerHeight]="50" rowHeight="auto"
+      [limit]="10" [rows]="dataRows" [columns]="dataColumns">
+      <!-- <ngx-datatable-column name="Id" prop="_id"></ngx-datatable-column> -->
+      <ngx-datatable-column name="Object Id" prop="_id"></ngx-datatable-column>
+      <ngx-datatable-column name="Name" prop="name"></ngx-datatable-column>
+      <ngx-datatable-column name="Action">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <a routerLink="/department/{{row._id}}/preview"
+            class="px-4 py-1 text-xs tracking-wider text-white uppercase bg-green-500 rounded-lg">edit</a>
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+</div>

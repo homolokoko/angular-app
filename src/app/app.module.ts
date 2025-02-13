@@ -22,6 +22,10 @@ import { UserModule } from './shared/routing/user/user.module';
 import { EmployeeModule } from './shared/routing/employee/employee.module';
 import { ProcessModule } from './shared/process/process.module';
 import { ResourceModule } from './shared/resource.module';
+import { DepartmentModule } from './shared/routing/department/department.module';
+import { OwnerModule } from './shared/routing/owner/owner.module';
+import { CountryModule } from './shared/routing/country/country.module';
+import { MotorcycleModule } from './shared/routing/motorcycle/motorcycle.module';
 
 @NgModule({
   declarations: [
@@ -47,6 +51,10 @@ import { ResourceModule } from './shared/resource.module';
     SharedModule,
     UserModule,
     EmployeeModule,
+    DepartmentModule,
+    OwnerModule,
+    CountryModule
+    // MotorcycleModule,,
     ProcessModule,
     ResourceModule
   ],

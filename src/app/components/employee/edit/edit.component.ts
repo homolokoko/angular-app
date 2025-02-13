@@ -22,16 +22,17 @@ export class EditComponent implements OnInit {
   phone_number!: string
   email_address!: string
   date_of_birth!: Date
-  departments: any
-  department!: number
+  department!: string
+  departments!: any
 
   constructor(
     private sharedService: SharedService,
     private toast: ToastService,
     private route: ActivatedRoute,
     private router: Router,
+    private sharedService: SharedService,
     private employeeService: EmployeeService
-  ){}
+  ) { }
 
   ngOnInit(): void {
 
@@ -54,15 +55,17 @@ export class EditComponent implements OnInit {
 
   pickedDepartment(picked: number){ this.department = picked }
 
-  remove(){
+  pickDepartment(val: string) { this.department = val }
+
+  remove() {
     this.employeeService.remove(this.param)
       .subscribe(() => {
         this.toast.toastSucess()
-        .then(() => { this.router.navigateByUrl(`/employee`) })
+          .then(() => { this.router.navigateByUrl(`/employee`) })
       })
   }
 
-  modify(){
+  modify() {
     this.employeeService.modify(
       this.param,
       {

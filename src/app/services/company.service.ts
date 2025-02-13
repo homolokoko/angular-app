@@ -10,14 +10,14 @@ export class CompanyService {
 
   constructor(private http: HttpClient) { }
 
-  public deleteCompany(id: string) { return this.http.delete(`https://localhost/api/page/${id}`) }
+  public deleteCompany(param: string) { return this.http.delete(`http://localhost:8000/api/company/${param}`) }
 
-  public getCompany(): Observable<Icompany[]> { return this.http.get<Icompany[]>(`https://localhost/api/page`) }
+  public getCompany(): Observable<Icompany[]> { return this.http.get<Icompany[]>(`http://localhost:8000/api/company`) }
 
-  public pickCompany(id: string): Observable<Icompany> { return this.http.get<Icompany>(`https://localhost/api/page/${id}`) }
+  public pickCompany(param: string): Observable<Icompany> { return this.http.get<Icompany>(`http://localhost:8000/api/company/${param}`) }
 
-  public postCompany(data: object): Observable<Icompany> { return this.http.post<Icompany>(`https://localhost/api/page`, data) }
+  public postCompany(data: object): Observable<Icompany> { return this.http.post<Icompany>(`http://localhost:8000/api/company`, data) }
 
-  public putCompany(id: string, data: object): Observable<Icompany> { return this.http.put<Icompany>(`https://localhost/api/page/${id}`, data) }
+  public putCompany(param: string, data: object): Observable<Icompany> { return this.http.put<Icompany>(`http://localhost:8000/api/company/${param}`, data) }
 
 }
