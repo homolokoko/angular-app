@@ -53,7 +53,7 @@ import { MotorcycleModule } from './shared/routing/motorcycle/motorcycle.module'
     EmployeeModule,
     DepartmentModule,
     OwnerModule,
-    CountryModule
+    CountryModule,
     // MotorcycleModule,,
     ProcessModule,
     ResourceModule

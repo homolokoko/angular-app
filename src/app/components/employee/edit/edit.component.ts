@@ -30,7 +30,6 @@ export class EditComponent implements OnInit {
     private toast: ToastService,
     private route: ActivatedRoute,
     private router: Router,
-    private sharedService: SharedService,
     private employeeService: EmployeeService
   ) { }
 
@@ -53,7 +52,7 @@ export class EditComponent implements OnInit {
 
   }
 
-  pickedDepartment(picked: number){ this.department = picked }
+  pickedDepartment(picked: string){ this.department = picked }
 
   pickDepartment(val: string) { this.department = val }
 

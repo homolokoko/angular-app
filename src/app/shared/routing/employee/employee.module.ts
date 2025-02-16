@@ -8,7 +8,6 @@ import { PreviewComponent } from 'src/app/components/employee/preview/preview.co
 import { EditComponent } from 'src/app/components/employee/edit/edit.component';
 import { SharedModule } from 'src/app/components/shared/shared.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { SharedModule } from 'src/app/components/shared/shared.module';
 
 
 @NgModule({
@@ -21,9 +20,8 @@ import { SharedModule } from 'src/app/components/shared/shared.module';
     CommonModule,
     FormsModule,
     SharedModule,
-    EmployeeRoutingModule
-    NgxDatatableModule,
     EmployeeRoutingModule,
+    NgxDatatableModule,
     SharedModule,
   ]
 })
